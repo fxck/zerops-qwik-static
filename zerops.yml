@@ -1,0 +1,14 @@
+zerops:
+  - setup: staticqwik
+    build:
+      base: nodejs@18
+      buildCommands:
+        - npm i
+        - npm run build
+      deploy:
+        - "dist/~"
+      cache:
+        - node_modules
+        - package-lock.json
+    run:
+      start: npm start
