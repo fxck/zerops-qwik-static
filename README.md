@@ -42,6 +42,5 @@ Now, just add the [zerops.yml](https://github.com/zeropsio/recipe-qwik-static/bl
 
 
 <br/>
-<br/>
 
 Need help setting your project up? Join [Zerops Discord community](https://discord.com/invite/WDvCZ54).
