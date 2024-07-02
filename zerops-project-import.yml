@@ -5,6 +5,6 @@ project:
 
 services:
   - hostname: app
-    type: nodejs@20
+    type: static
     enableSubdomainAccess: true
     buildFromGit: https://github.com/zeropsio/recipe-qwik-static
