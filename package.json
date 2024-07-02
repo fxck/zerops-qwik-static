@@ -1,6 +1,5 @@
 {
-  "name": "my-qwik-basic-starter",
-  "description": "Demo App with Routing built-in (recommended)",
+  "name": "recipe-qwik-static",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
@@ -41,5 +40,10 @@
     "undici": "*",
     "vite": "^5.1.6",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4"
   }
 }

@@ -1,77 +1,48 @@
-# Qwik City App ⚡️
+# Zerops x Qwik - Static
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Qwik is a web framework for building instead loading web applications at any size or complexity. [Zerops](https://zerops.io) makes deploying and running Qwik apps, both server side rendered and static, a breeze. This recipe showcases the Static version, see [zeropsio/recipe-qwik-nodejs](https://github.com/zeropsio/recipe-qwik-nodejs) for the Node.js version.
 
----
+![qwik](https://github.com/zeropsio/recipe-shared-assets/blob/main/covers/svg/cover-qwik.svg)
 
-## Project Structure
+<br/>
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+## Deploy on Zerops
 
-Inside your project, you'll see the following directory structure:
+You can either click the deploy button to deploy directly on Zerops, or manually copy the [import yaml](https://github.com/zeropsio/recipe-qwik-static/blob/main/zerops-project-import.yml) to the import dialog in the Zerops app.
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
+<br/>
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+[![Deploy on Zerops](https://github.com/zeropsio/recipe-shared-assets/blob/main/deploy-button/green/deploy-button.svg)](https://app.zerops.io/recipe/qwik-static)
 
-- `src/components`: Recommended directory for components.
+<br/>
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+## Recipe features
 
-## Add Integrations and deployment
+- Latest version of **Qwik** with SSG running on a **Zerops Static** service.
 
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+<br/>
 
-```shell
-npm run qwik add # or `yarn qwik add`
-```
+## Production vs. development
 
-## Development
+This recipe is ready for production as is, and will scale horizontally by adding more containers in case of high traffic surges. If you want to achieve the highest baseline reliability and resiliace, start with at least two containers (add `minContainers: 2` in recipe YAML in the `app` service section, or change the minimum containers in "Automatic Scaling configuration" section of service detail).
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+<br/>
 
-```shell
-npm start # or `yarn start`
-```
+## Changes made over the default installation
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+If you want to modify your existing Qwik app to efficiently run on Zerops, follow these steps:
 
-## Preview
+1. Install the necessary adapter with:
+   `sh
+    npm run qwik add static
+    `
+   Running this command will make the following changes
 
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
+- A build.server script will be automatically added to your package.json file.
+- A adapters/static/vite.config.ts file will be created.
 
-```shell
-npm run preview # or `yarn preview`
-```
+Now, just add the [zerops.yml](https://github.com/zeropsio/recipe-qwik-static/blob/main/zerops.yml) file to the root of your project, and make sure to check `package.json` for the scripts.
 
-## Production
+<br/>
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
-```
-
-## Static Site Generator (Node.js)
-
-```shell
-npm run build.server
-```
-
-## Static Site Generator (Node.js)
-
-```shell
-npm run build.server
-```
+Need help setting your project up? Join [Zerops Discord community](https://discord.com/invite/WDvCZ54).
